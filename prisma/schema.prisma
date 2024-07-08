@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model OrdreReparation {
+  IDOR              Int      @id @default(autoincrement())
+  Jobno             Int
+  DateOR            DateTime @db.Date
+  NumClient         Int
+  Departement       String
+  NumSite           Int
+  NumVeh            Int
+  Km                Int
+  NomReceptionnaire String
+  Commentaire       String?
+  CodeInterne       String
+  Statut            status
+  Montant           Float?
+  DateMaj           DateTime @db.Date
+  Delai             Int
+  Client            Client   @relation(fields: [NumClient], references: [id])
+  Site              Site     @relation(fields: [NumSite], references: [id])
+  Vehicule          Vehicule @relation(fields: [NumVeh], references: [id])
+}
+
+model Client {
+  id               Int               @id @default(autoincrement())
+  Nom              String
+  OrdresReparation OrdreReparation[]
+}
+
+model Site {
+  id               Int               @id @default(autoincrement())
+  Nom              String
+  OrdresReparation OrdreReparation[]
+}
+
+model Vehicule {
+  id               Int               @id @default(autoincrement())
+  Immatriculation  String
+  OrdresReparation OrdreReparation[]
+}
+
+enum status {
+  en_cours
+  en_attente
+  cloture
+}
