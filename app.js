@@ -27,6 +27,12 @@ app.use("/vehicule", vehiculeRouter);
 app.use("/site", SiteRouter);
 app.use("/ordre", orderRouter);
 
+app.use("/", (req, res) => {
+  res.send(
+    "Welcome to the OR-authall fake API built with Node.js and Express.js"
+  );
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
