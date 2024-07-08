@@ -9,6 +9,7 @@ var ClientRouter = require("./routes/client");
 var SiteRouter = require("./routes/site");
 var orderRouter = require("./routes/ordre");
 var vehiculeRouter = require("./routes/vehicule");
+var indexRouter = require("./routes/index");
 
 var app = express();
 
@@ -26,12 +27,7 @@ app.use("/client", ClientRouter);
 app.use("/vehicule", vehiculeRouter);
 app.use("/site", SiteRouter);
 app.use("/ordre", orderRouter);
-
-app.use("/", (req, res) => {
-  res.send(
-    "Welcome to the OR-authall fake API built with Node.js and Express.js"
-  );
-});
+app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
