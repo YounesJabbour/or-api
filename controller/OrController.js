@@ -36,7 +36,7 @@ const listOrdreReparation = async (req, res) => {
 const getOrdreReparation = async (req, res) => {
   const OrdreReparation = await prisma.OrdreReparation.findUnique({
     where: {
-      id: parseInt(req.params.id),
+      IDOR: parseInt(req.params.id),
     },
   });
   res.json(OrdreReparation);
