@@ -13,13 +13,13 @@ const createOrdreReparation = async (req, res) => {
 
 const listOrdreReparation = async (req, res) => {
   const OrdreReparation = await prisma.OrdreReparation.findMany({
-    include: {
-      Vehicule: {
-        select: {
-          Km: true,
-        },
-      },
-    },
+    // include: {
+    //   Vehicule: {
+    //     select: {
+    //       Km: true,
+    //     },
+    //   },
+    // },
   });
 
   res.json(OrdreReparation);
