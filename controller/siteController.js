@@ -17,7 +17,7 @@ const listSite = async (req, res) => {
 const getSite = async (req, res) => {
   const Site = await prisma.Site.findUnique({
     where: {
-      id: req.params.id,
+      id: parseInt(req.params.id),
     },
   });
   res.json(Site);

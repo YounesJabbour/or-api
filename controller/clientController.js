@@ -17,7 +17,7 @@ const listClient = async (req, res) => {
 const getClient = async (req, res) => {
   const client = await prisma.client.findUnique({
     where: {
-      id: req.params.id,
+      id: parseInt(req.params.id),
     },
   });
   res.json(client);

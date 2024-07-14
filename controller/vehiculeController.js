@@ -19,7 +19,7 @@ const listVehicule = async (req, res) => {
 const getVehicule = async (req, res) => {
   const Vehicule = await prisma.Vehicule.findUnique({
     where: {
-      id: req.params.id,
+      id: parseInt(req.params.id),
     },
   });
   res.json(Vehicule);
