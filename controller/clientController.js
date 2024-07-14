@@ -1,4 +1,4 @@
-prisma = require("../prisma");
+prisma = require("../db");
 
 const createClient = async (req, res) => {
   const data = req.body;

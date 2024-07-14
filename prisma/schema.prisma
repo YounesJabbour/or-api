@@ -17,21 +17,32 @@ model OrdreReparation {
   IDOR              Int      @id @default(autoincrement())
   Jobno             Int
   DateOR            DateTime @db.Date
-  NumClient         Int
-  Departement       String
-  NumSite           Int
-  NumVeh            Int
-  Km                Int
-  NomReceptionnaire String
+  Departement       String?
+  NomReceptionnaire String?
   Commentaire       String?
-  CodeInterne       String
-  Statut            status
+  CodeInterne       String?
+  Statut            status?
   Montant           Float?
   DateMaj           DateTime @db.Date
   Delai             Int
+  // foreign key //
+  NumVeh            Int
+  NumSite           Int
+  NumClient         Int
   Client            Client   @relation(fields: [NumClient], references: [id])
   Site              Site     @relation(fields: [NumSite], references: [id])
   Vehicule          Vehicule @relation(fields: [NumVeh], references: [id])
+}
+
+model Vehicule {
+  id               Int               @id @default(autoincrement())
+  Immatriculation  String
+  vehiclePlate     String?
+  chassisNumber    String?
+  brand            String?
+  model            String?
+  Km               Int?
+  OrdresReparation OrdreReparation[]
 }
 
 model Client {
@@ -43,12 +54,6 @@ model Client {
 model Site {
   id               Int               @id @default(autoincrement())
   Nom              String
-  OrdresReparation OrdreReparation[]
-}
-
-model Vehicule {
-  id               Int               @id @default(autoincrement())
-  Immatriculation  String
   OrdresReparation OrdreReparation[]
 }
 

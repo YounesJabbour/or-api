@@ -6,11 +6,7 @@ CREATE TABLE "OrdreReparation" (
     "IDOR" SERIAL NOT NULL,
     "Jobno" INTEGER NOT NULL,
     "DateOR" DATE NOT NULL,
-    "NumClient" INTEGER NOT NULL,
     "Departement" TEXT NOT NULL,
-    "NumSite" INTEGER NOT NULL,
-    "NumVeh" INTEGER NOT NULL,
-    "Km" INTEGER NOT NULL,
     "NomReceptionnaire" TEXT NOT NULL,
     "Commentaire" TEXT,
     "CodeInterne" TEXT NOT NULL,
@@ -18,8 +14,24 @@ CREATE TABLE "OrdreReparation" (
     "Montant" DOUBLE PRECISION,
     "DateMaj" DATE NOT NULL,
     "Delai" INTEGER NOT NULL,
+    "NumVeh" INTEGER NOT NULL,
+    "NumSite" INTEGER NOT NULL,
+    "NumClient" INTEGER NOT NULL,
 
     CONSTRAINT "OrdreReparation_pkey" PRIMARY KEY ("IDOR")
+);
+
+-- CreateTable
+CREATE TABLE "Vehicule" (
+    "id" SERIAL NOT NULL,
+    "Immatriculation" TEXT NOT NULL,
+    "vehiclePlate" TEXT,
+    "chassisNumber" TEXT,
+    "brand" TEXT,
+    "model" TEXT,
+    "Km" INTEGER,
+
+    CONSTRAINT "Vehicule_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -36,14 +48,6 @@ CREATE TABLE "Site" (
     "Nom" TEXT NOT NULL,
 
     CONSTRAINT "Site_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Vehicule" (
-    "id" SERIAL NOT NULL,
-    "Immatriculation" TEXT NOT NULL,
-
-    CONSTRAINT "Vehicule_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey

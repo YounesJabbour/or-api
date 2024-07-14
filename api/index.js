@@ -1,6 +1,5 @@
 require("dotenv").config();
 var express = require("express");
-const prisma = require("../prisma");
 var ClientRouter = require("../routes/client");
 var SiteRouter = require("../routes/site");
 var orderRouter = require("../routes/ordre");

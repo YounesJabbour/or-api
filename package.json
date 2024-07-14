@@ -4,7 +4,7 @@
   "private": true,
   "main": "./api/index.js",
   "scripts": {
-    "start": "node ./api/index.js"
+    "start": "nodemon ./api/index.js"
   },
   "dependencies": {
     "@prisma/client": "^5.16.1",
