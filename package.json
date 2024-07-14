@@ -4,14 +4,13 @@
   "private": true,
   "main": "./api/index.js",
   "scripts": {
-    "start": "nodemon ./api/index.js"
+    "start": "node ./api/index.js"
   },
   "dependencies": {
     "@prisma/client": "^5.16.1",
     "debug": "~2.6.9",
     "dotenv": "^16.4.5",
     "express": "~4.16.1",
-    "nodemon": "^3.1.4",
     "prisma": "^5.16.1"
   }
 }
