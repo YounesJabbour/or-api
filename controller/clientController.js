@@ -1,4 +1,7 @@
-prisma = require("../db");
+// prisma = require("../db");
+
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 const createClient = async (req, res) => {
   const data = req.body;

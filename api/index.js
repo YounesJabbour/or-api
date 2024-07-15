@@ -5,11 +5,19 @@ var SiteRouter = require("../routes/site");
 var orderRouter = require("../routes/ordre");
 var vehiculeRouter = require("../routes/vehicule");
 var indexRouter = require("../routes/index");
+const cors = require("cors");
 
 var app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: ["POST", "GET", "PUT", "DELETE"],
+};
+
+app.use(cors(corsOptions));
 
 app.use("/client", ClientRouter);
 app.use("/vehicule", vehiculeRouter);

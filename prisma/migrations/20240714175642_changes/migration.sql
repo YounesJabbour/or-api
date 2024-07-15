@@ -1,5 +1,0 @@
--- AlterTable
-ALTER TABLE "OrdreReparation" ALTER COLUMN "Departement" DROP NOT NULL,
-ALTER COLUMN "NomReceptionnaire" DROP NOT NULL,
-ALTER COLUMN "CodeInterne" DROP NOT NULL,
-ALTER COLUMN "Statut" DROP NOT NULL;
