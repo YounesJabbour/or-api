@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "main": "./api/index.js",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "scripts": {
     "start": "node ./api/index.js"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.0.3",
     "@prisma/client": "^5.16.1",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
